@@ -6,22 +6,33 @@ import os
 
 # Set page tab display
 st.set_page_config(
-   page_title="Simple Image Uploader",
+   page_title="PCB Defect Detection",
    page_icon= '🖼️',
    layout="wide",
    initial_sidebar_state="expanded",
 )
 
-# Example local Docker container URL
-# url = 'http://api:8000'
+## Selecionar url de Google cada uno (Diego, Mateo, Matias)
+#url = ''  #MATIAS
+#url = ''   #MATEO
+#url = ''   #DIEGO
+
+
 # Example localhost development URL
 url = 'http://localhost:8000'
-# load_dotenv()
-#url = os.getenv('API_URL')
+
 
 
 # App title and description
 st.header('Detección de defectos en tarjetas PCB')
+
+
+#Slider para elegir manualmente threshold
+st.subheader('Umbral de confianza')
+
+conf = st.slider('Seleccionar confianza del modelo: ',min_value=0.10,max_value=1.00,step=0.05,value=0.25)
+
+st.write('El modelo solo identificará aquellos defectos para los que tenga al menos un ',conf*100,'% de seguridad en sus predicciones.')
 
 
 ### Create a native Streamlit file upload input
@@ -42,7 +53,7 @@ if img_file_buffer is not None:
       img_bytes = img_file_buffer.getvalue()
 
       ### Make request to  API (stream=True to stream response as bytes)
-      res = requests.post(url + "/upload_image", files={'img': img_bytes})
+      res = requests.post(url + "/upload_image", files={'img': img_bytes},params={'conf':conf})
 
       if res.status_code == 200:
         ### Display the image returned by the API
