@@ -95,7 +95,7 @@ with st.container():
 
     with col1:
         conf = st.slider('Seleccionar confianza del modelo: ',min_value=0.10,max_value=1.00,step=0.05,value=0.25)
-        st.write('El modelo solo identificará aquellos defectos para los que tenga al menos un ',conf*100,'% de seguridad en sus predicciones.')
+        st.write('El modelo solo identificará aquellos defectos para los que tenga al menos un ',conf*100,'% de seguridad en sus predicciones. Valor recomendado 25%')
 
     with col2:
         st.write(' ')
