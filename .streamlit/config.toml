@@ -1,0 +1,15 @@
+[theme]
+# Base colors
+
+primaryColor="#5c6bc0"
+backgroundColor="#010635"
+secondaryBackgroundColor="#898d94"
+textColor="#f5f7fa"
+
+
+
+# Font style
+font = "sans serif"  # Modern, clean sans-serif font
+
+# Layout
+base = "dark"
