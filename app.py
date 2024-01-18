@@ -130,7 +130,7 @@ with st.container():
                 with col4:
                     st.write(' ')
                 with col5:
-                    st.success('          Exito!')
+                    st.success('Exito!')
                 with col6:
                     st.write(' ')
             else:
