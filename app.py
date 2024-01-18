@@ -22,8 +22,8 @@ st.set_page_config(
 
 ## Selecionar url de google cada uno (Diego, Mateo, Matias)
 #url = 'https://docker-test-pcb-cfiqqvqtva-uc.a.run.app' #MATIAS: Imagen sin conf thres customizable
-url = 'https://docker-test-pcb-cfiqqvqtva-uw.a.run.app'  #MATIAS con conf thres
-#url = ''   #MATEO
+#url = 'https://docker-test-pcb-cfiqqvqtva-uw.a.run.app'  #MATIAS con conf thres
+url = 'https://docker-test-pcbpresentation-7ldkj5j5dq-uw.a.run.app'   #MATEO
 #url = ''   #DIEGO
 
 # Define the local CSS file location or the URL to the image
@@ -113,10 +113,10 @@ with st.container():
 
 
         ### Display the image user uploaded
-        st.image(Image.open(img_file_buffer), caption="Here's the image you uploaded ☝️")
+        st.image(Image.open(img_file_buffer), caption="Esta es la imagen cargada ☝️")
 
 
-        with st.spinner("Wait for it..."):
+        with st.spinner("Cargando..."):
             ### Get bytes from the file buffer
             img_bytes = img_file_buffer.getvalue()
 
@@ -125,12 +125,12 @@ with st.container():
 
             if res.status_code == 200:
                 ### Display the image returned by the API
-                st.image(res.content, caption="Imagen devuelta por API ☝️")
+                st.image(res.content, caption="Estos son los defectos en la PCB ☝️")
                 col4, col5, col6= st.columns(3)
                 with col4:
                     st.write(' ')
                 with col5:
-                    st.success('This is a success!')
+                    st.success('Exito!')
                 with col6:
                     st.write(' ')
             else:
